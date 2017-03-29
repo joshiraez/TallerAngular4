@@ -16,15 +16,17 @@ angular.module("petclinicApp",['ui.router'])
         .state('owners',
                 {
                     url: '/owners',
-                    templateUrl: "/template/owners.html"
-                    //controller: "nController"
+                    templateUrl: "/template/owners.html",
+                    controller: "OwnersControllers",
+                    controllerAs: "vm"
                 }
               )
         .state('vet',
                 {
                     url: '/vet',
-                    templateUrl: "/template/veterinarians.html"
-                    //controller: "nController"
+                    templateUrl: "/template/veterinarians.html",
+                    controller: 'VetController',
+                    controllerAs: "vm"
                 }
               )
     ;//Fin State Provider

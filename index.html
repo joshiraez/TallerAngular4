@@ -31,9 +31,9 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul class="nav navbar-nav navbar-right">
-                        <li ng-class="{$location.path().includes('home'): 'active'}"><a ui-sref="home">Home</a></li>
-                        <li ng-class="{$location.path().includes('own'): 'active'}"><a ui-sref="owners">Find Owners</a></li>
-                        <li ng-class="{$location.path().includes('vet'): 'active'}"><a ui-sref="vet">Veterinarians</a></li>
+                        <li ng-class="{$location.path().includes('home') : 'active'}"><a ui-sref="home">Home</a></li>
+                        <li ng-class="{$location.path().includes('own') : 'active'}"><a ui-sref="owners">Find Owners</a></li>
+                        <li ng-class="{$location.path().includes('vet') : 'active'}"><a ui-sref="vet">Veterinarians</a></li>
                           <li><a href="#">Error</a></li>
                       </ul>
                      
@@ -54,6 +54,8 @@
     <script src="app.js"></script>
     <script src="/controllers/ownersControllers.js"></script>
     <script src="/factories/ownersFactory.js"></script>
+    <script src="/controllers/vetController.js"></script>
+    <script src="/factories/vetFactory.js"></script>
     <script src="/filters/customFilter.js"> </script>
 </html>
 
