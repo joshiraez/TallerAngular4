@@ -1,0 +1,68 @@
+
+        <section class="container"
+                  ng-controller="OwnersControllers as vm">
+            <article  class="row">
+                <h1 class="page-header">Propietarios</h1>
+            </article>
+            <article>
+                <form class="well">
+                  <div class="form-group">
+                    <label for="search">Búsqueda:</label>
+                    <input type="text" class="form-control" id="search" placeholder="Indique el nombre del propietario a buscar" ng-model="vm.filtro" />
+                  </div>
+                  <button type="submit" class="btn btn-success">Buscar</button>
+                </form>
+            </article>
+            <article>
+                <h4 ng-if="filtro!=''">Filtrado por {{ vm.filtro }} </h4>
+                <table class="table table-striped text-center">
+                    <tr class="active">
+                        <th>&#35;</th>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>Número mascotas</th>
+                        <th>Acciones</th>
+                    </tr>
+                    <!-- SI EL FILTRO DE MAS ADELANTE LE PONES VM, PETARA, HARD :S-->
+                    <tr class="text-left" 
+                        ng-repeat="owner in vm.owners | orderBy : owner.pets.length | filter : { firstName: vm.filtro} " 
+                        ng-class="{'text-danger' : owner.numPets==0}"> 
+                        <!-- Tambien ng-class="owner.numPets==0 ? 'text-danger' : '' -->
+                        <!--ng-if="owner.name.includes(filtro)"  Esto hace lo mismo que filtro no strict -->
+                        
+                        <td> {{ owner.id }}</td>
+                        <td> {{ owner.firstName +" "+ owner.lastName | uppercase}}</td>
+                        <td> {{ owner.address + ", "+owner.city }}</td>
+                        <td> {{ owner.telephone | customFilter }}</td>
+                        <td>
+                             {{ owner.pets.length }}
+                        <td>
+                            <button type="button" 
+                                    class="btn btn-danger" 
+                                    ng-click="vm.deleteOwner(owner)">X</button>
+                        </td>
+                            
+                    </tr>
+                    
+                </table>
+                <form class="well">
+                  <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Indique el nombre del propietario a buscar" ng-model="vm.name" />
+                      <label for="addr">Addr:</label>
+                    <input type="text" class="form-control" id="addr" placeholder="Indique el nombre del propietario a buscar" ng-model="vm.address" />
+                      <label for="phone">Tlf:</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Indique el nombre del propietario a buscar" ng-model="vm.phone" />
+                      <label for="numPets">Mascotas:</label>
+                    <input type="number" class="form-control" id="numPets" placeholder="Indique el nombre del propietario a buscar" ng-model="vm.numPets" />
+                  </div>
+                  <button type="submit" class="btn btn-success" 
+                          ng-click="vm.saveOwner()">Añadir</button>
+                </form>
+            </article>
+
+        </section>
+
+
+
