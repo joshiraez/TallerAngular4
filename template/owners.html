@@ -31,7 +31,7 @@
                         <!--ng-if="owner.name.includes(filtro)"  Esto hace lo mismo que filtro no strict -->
                         
                         <td> {{ owner.id }}</td>
-                        <td> {{ owner.firstName +" "+ owner.lastName | uppercase}}</td>
+                        <td> <a ui-sref="ownerDetails({ ownerId: owner.id })"> {{ owner.firstName +" "+ owner.lastName | uppercase}} </a></td>
                         <td> {{ owner.address + ", "+owner.city }}</td>
                         <td> {{ owner.telephone | customFilter }}</td>
                         <td>
@@ -45,21 +45,23 @@
                     </tr>
                     
                 </table>
-                <!--
-                <form class="well">
+                
+                <form class="well" name="formOwner">
                   <div class="form-group">
                     <label for="name">Nombre:</label>
-                    <input type="text" class="form-control" id="name" placeholder="Indique el nombre del propietario a buscar" ng-model="vm.name" />
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" ng-model="vm.name" />
+                     <label for="ape">Nombre:</label>
+                    <input type="text" class="form-control" name="ape" id="ape" placeholder="Apellidos" ng-model="vm.ape" /> 
                       <label for="addr">Addr:</label>
-                    <input type="text" class="form-control" id="addr" placeholder="Indique el nombre del propietario a buscar" ng-model="vm.address" />
+                    <input type="text" class="form-control" name="addr" id="addr" placeholder="Direccion" ng-model="vm.address" />
+                    <label for="city">Addr:</label>
+                    <input type="text" class="form-control" name="city" id="city" placeholder="Direccion" ng-model="vm.city" />
                       <label for="phone">Tlf:</label>
-                    <input type="text" class="form-control" id="phone" placeholder="Indique el nombre del propietario a buscar" ng-model="vm.phone" />
-                      <label for="numPets">Mascotas:</label>
-                    <input type="number" class="form-control" id="numPets" placeholder="Indique el nombre del propietario a buscar" ng-model="vm.numPets" />
+                    <input type="text" class="form-control" name="tlf" id="phone" placeholder="Telefono" ng-model="vm.phone" />
                   </div>
                   <button type="submit" class="btn btn-success" 
-                          ng-click="vm.saveOwner()">Añadir</button>
-                </form>-->
+                          ng-click="vm.save()" ng-disabled="formOwner.$invalid">Añadir</button>
+                </form>
             </article>
 
         </section>

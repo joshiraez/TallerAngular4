@@ -29,6 +29,30 @@ angular.module("petclinicApp",['ui.router'])
                     controllerAs: "vm"
                 }
               )
+        .state('ownerDetails', 
+               {
+                    url: '/owners/details/:ownerId',
+                    templateUrl: "/template/owner.html",
+                    controller: 'OwnerController',
+                    controllerAs: "vm"
+               }
+              )
+        .state('ownerDetails.petCreate', 
+               {
+                    url: '/owners/details/:ownerId/new',
+                    templateUrl: "/template/petForm.html",
+                    controller: 'PetController',
+                    controllerAs: "vm"
+               }
+              )
+        .state('ownerDetails.petEdit', 
+               {
+                    url: '/owners/details/:ownerId/edit/:petId',
+                    templateUrl: "/template/petForm.html",
+                    controller: 'PetController',
+                    controllerAs: "vm"
+               }
+              )
     ;//Fin State Provider
     
 })//Fin Config

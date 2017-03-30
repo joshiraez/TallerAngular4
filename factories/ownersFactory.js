@@ -40,6 +40,9 @@ modulo.factory('ownersFactory', ownersFactory);
              deleteOwner : function (id) {
                 return  $http.delete('http://localhost:8080/owner/'+id);
 
+            },
+           getOwner:  function(ownerId){
+                return $http.get('http://localhost:8080/owner/'+ ownerId);
             }
         }
     return interface;

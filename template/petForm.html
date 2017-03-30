@@ -1,0 +1,22 @@
+<h2>Mascota</h2>
+<form ng-submit="vm.submitPetForm()" name="petForm" class="well">
+    <label>Owner:</label> {{ $parent.owner.firstName }} {{ $parent.owner.lastName }}<br>
+    
+    <label for="petName">Name</label>
+    <input class="form-control" ng-model="vm.petName" name="petName" required />
+    <span ng-show= "!petForm.petName.$pristine && petForm.petName.$error.required" class="help-block">
+    Introduce el nombre por favor.</span>
+    
+    <label for="petBirthDate">Birth date</label>
+    <input class="form-control" ng-model="vm.birthDate" name="petBirthDate" required />
+    <span ng-show= "!petForm.petBirthDate.$pristine && petForm.petBirthDate.$error.required" class="help-block">
+    Introduce la fecha de nacimiento por favor.</span>
+    
+    <label for="petType">Type</label>
+    <select class="form-control" ng-model="vm.petName" name="petName" ng-options="type for type in vm.petTypes"> </select>
+    <span ng-show= "!petForm.petName.$pristine" class="help-block">
+    Introduce el tipo por favor.</span>
+    
+    <button type="submit" class="btn btn-success" 
+                         ng-disabled="petForm.$invalid">{{ vm.labelButton }}</button>
+</form>

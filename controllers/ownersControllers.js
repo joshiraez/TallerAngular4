@@ -31,7 +31,9 @@ var modulo = angular.module("petclinicApp");
    var vm = this;
 
     vm.name;
+    vm.ape;
     vm.address;
+    vm.city;
     vm.phone;
     vm.numPets;
     
@@ -59,8 +61,9 @@ var modulo = angular.module("petclinicApp");
                                                    
     };
     
-    vm.saveOwner = function(){
-        ownersFactory.createOwner(vm.name, vm.address, vm.phone, vm.numPets);
+    vm.save = function(){
+        json = {'firstName':vm.name, 'lastName':vm.ape, 'address':vm.address, 'city':vm.city, 'telephone':vm.phone};
+        ownersFactory.createOwner();
     };
     
    }
